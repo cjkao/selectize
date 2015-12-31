@@ -1,2 +1,1 @@
-# selectize
-dart selectize js wrapper
+Selectize wrapper
