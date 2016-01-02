@@ -13,7 +13,7 @@ external Selectize selectize(String selector, [SelectOptions]);
 @JS()
 @anonymous
 class SelectOptions {
-  /// list of [valueField]
+  /// list of [valueField], read only in Dartium, work in Chrome
   external List<String> get items;
 
   ///The string to separate items by.
@@ -22,35 +22,127 @@ class SelectOptions {
   external String get delimiter;
 
   ///The max number of items to render at once in the dropdown list of options.
+  /// default: 1000
   external int get maxOptions;
 
   /// max selectable item
   external int get maxItems; //: 3
-  external bool get persist;
   external String get valueField;
   external String get labelField;
+
+  /// String or Array
+  ///A single field or an array of fields to sort by. Each item in the array should be an object containing
+  ///  at least a "field" property.
+  /// Optionally, "direction" can be set to "asc" or "desc". The order of the array defines the sort precedence.
+  external String get sortField;
+
   external List<BaseOption> get options;
   external List<String> get searchField;
   external List<String> get plugins; //: ['restore_on_backspace']
   external RenderFuns get render;
+
+  ///If true, when user exits the field (clicks outside of input or presses ESC)
+  /// new option is created and selected (if `create`-option is enabled).
+  external bool get createOnBlur;
+
+  ///Specifies a RegExp or String containing a regular expression that the current search filter must match to be
+  /// allowed to be created. May also be a predicate function that takes the filter text and returns whether it is allowed.
   external Func1<bool, String> get createFilter;
 
   /// "input" and "callback". The callback should be invoked with the final data for the option.
   external Func2<bool, String, Function> get create;
+
+  ///Toggles match highlighting within the dropdown menu.
+  /// default: true
+  external bool get highlight;
+
+  ///If false, items created by the user will not show up as available options once they are unselected.
+  ///default: true
+  external bool get persist;
+
+  ///Show the dropdown immediately when the control receives focus.
+  /// default true
+  external bool get openOnFocus;
+
+  ///If true, the items that are currently selected will not be shown in the dropdown list of available options.
+  /// default true
+  external bool get hideSelected;
+
+  ///  If true, the dropdown will be closed after a selection is made.
+  /// default: false
+  external bool get closeAfterSelect;
+  //************** CALLBACK ***********************//
+  ///Invoked once the control is completely initialized.
+  external VoidFunc0 get onInitialize;
+
+  /// nvoked when the control gains focus.
+  external VoidFunc0 get onFocus;
+
+  ///Invoked when the control loses focus.
+  external VoidFunc0 get onBlur;
+
+  ///invoked when the value of the control changes.
+  external VoidFunc1 get onChange;
+
+  ///Invoked when an item is selected.
+  /// value, $item
+  external VoidFunc2 get onItemAdd;
+
+  ///Invoked when an item is selected.
+  /// value, $item
+  external VoidFunc1 get onItemRemove;
+
+  ///  Invoked when the control is manually cleared via the clear() method.
+  external VoidFunc0 get onClear;
+
+  /// Invoked when the user attempts to delete the current selection.
+  external VoidFunc1 get onDelete;
+
+  ///Invoked when a new option is added to the available options list.
+  /// value, data
+  external VoidFunc2 get onOptionAdd;
+
+  ///	Invoked when an option is removed from the available options.
+  external VoidFunc1 get onOptionRemove;
+
+  ///Invoked when the dropdown open.
+  external VoidFunc1 get onDropdownOpen;
+
+  ///Invoked when the dropdown closes.
+  external VoidFunc1 get onDropdownClose;
+
+  ///nvoked when the user types while filtering options.
+  external VoidFunc1<String> get onType;
+
   external factory SelectOptions(
       {List items,
       String delimiter,
       int maxOptions,
       int maxItems,
-      bool persist,
       String valueField,
       String labelField,
+      String sortField,
       List<BaseOption> options,
       List<String> searchField,
       List<String> plugins,
       RenderFuns render,
+      bool createOnBlur,
       Func1<bool, String> createFilter,
-      Func2<bool, String, Function> create});
+      Func2<bool, String, Function> create,
+      bool highlight,
+      bool persist,
+      bool openOnFocus,
+      bool hideSelected,
+      bool closeAfterSelec,
+      VoidFunc0 onInitialize,
+      VoidFunc0 onFocus,
+      VoidFunc0 onBlur,
+      VoidFunc1 onChange,
+      VoidFunc2 onItemAdd,
+      VoidFunc1 onItemRemove,
+      VoidFunc1 onDelete,
+      VoidFunc2 onOptionAdd,
+      VoidFunc1 onOptionRemove});
 }
 
 @JS("Selectize")
@@ -60,11 +152,11 @@ class Selectize {
 
   ///"Selects" an item. Adds it to the list at the current caret position.
   ///  If [silent] is true, no change event will be fired on the original input.
-  external addItem(String value, bool silent);
+  external void addItem(String value, bool silent);
 
   ///Removes the selected item matching the provided value.
   ///  If [silent] is truthy, no change event will be fired on the original input.
-  external removeItem(value, silent);
+  external void removeItem(value, silent);
 
   ///Invokes the "create" method provided in the selectize options that should provide the data for the new item,
   ///  given the user input. Once this completes, it will be added to the item list.
@@ -85,9 +177,9 @@ class Selectize {
   external load(Function fn);
 
   ///  Brings the control into focus.
-  external focus();
-  external blur();
-  external lock();
+  external void focus();
+  external void blur();
+  external void lock();
 
   ///Re-enables user input on the control.
   external unlock();
@@ -98,19 +190,22 @@ class Selectize {
   ///Enables the control so that it can respond to focus and user input.
   external enable();
 
-  ///this return union type, array or string
+  ///return union type, array or string
+  ///Returns the value of the control. If multiple items can be selected (e.g. <select multiple>,
+  /// this returns an array. If only one item can be selected, this returns a string.
   external getValue();
-  external setValue(value, bool silent);
+
+  external void setValue(value, bool silent);
 
   ///Moves the caret to the specified position ("index" being the index in the list of selected items).
-  external setCaret(index);
+  external void setCaret(index);
 
   ///Returns whether or not the user can select more items.
-  external isFull();
+  external bool isFull();
 
   ///Clears the render cache. Takes an optional [template] argument
   ///  (e.g. "option", "item") to clear only that cache.
-  external clearCache(String template);
+  external void clearCache(String template);
 
   ///Adds an available option, or array of options. If it already exists, nothing will happen.
   ///Note: this does not refresh the options list dropdown (use refreshOptions() for that).
@@ -147,7 +242,7 @@ class Selectize {
   external Options get options;
 
 /*  for EVENT **********************************/
-  /// [event]
+  /// [event] including following
   ///   'initialize'
   ///		'change'
   ///   'item_add'
@@ -165,12 +260,37 @@ class Selectize {
   ///		'load'
   ///		'focus'
   ///		'blur'
+  /// [handler] must call allowInterOp, trigger from jquery
   external on(String event, EventHandler handler);
 
   /// remove event listener
+  /// [handler] must call allowInterOp, trigger from jquery
   external off(String event, [EventHandler handler]);
   external trigger(String event);
   external render();
+
+/******* properties *************************/
+  external bool get isOpen;
+  external bool get isDisabled;
+  external bool get isRequired;
+  external bool get isInvalid;
+  external bool get isLocked;
+  external bool get isFocused;
+  external bool get isInputHidden;
+  external bool get isSetup;
+  external bool get isShiftDown;
+  external bool get isCmdDown;
+  external bool get isCtrlDown;
+  external bool get ignoreFocus;
+  external bool get ignoreBlur;
+  external bool get ignoreHover;
+  external bool get hasOptions;
+  external int get caretPos;
+
+  /// Input or Select
+  external String get tagType;
+
+  external static Function getScoreFunction(val);
 }
 
 @JS('options')
@@ -179,17 +299,7 @@ class Options {
   external Options();
 }
 
-/// Option wrapper to access OptValue
-/// not work, return null
-class JOptions {
-  Options _option;
-  JsObject _opt;
-  JOptions(this._option) {
-    _opt = new JsObject.fromBrowserObject(_option);
-  }
-  OptValue operator [](String tag) => _opt[tag];
-}
-
+/// access option value by it's dynamic key
 @JS("jqOptionByValue")
 external OptValue optionByValue(Options options, String key);
 
@@ -221,13 +331,14 @@ class RenderFuns {
 @anonymous
 class BaseOption {}
 
+/// require two fields, one for
 /// any object extend from BaseOption is compitable
 @JS()
 @anonymous
-class XBaseOption extends BaseOption {
+class MailBaseOption extends BaseOption {
   external String get email;
   external String get name;
-  external factory XBaseOption({String email, String name});
+  external factory MailBaseOption({String email, String name});
 }
 //class OptValue
 // @JS()

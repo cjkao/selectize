@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>poly01</title>
+  <title>Selectize</title>
 
 
 
@@ -17,9 +17,9 @@
 </head>
 
 <body unresolved>
-
-
-<input type="text" id="input-tags" value="awesome,neat">
+<section class="demo">
+  <my-app>Loading...</my-app>
+</section>
   <script type="application/dart" src="index.dart"></script>
   <script src="packages/browser/dart.js"></script>
   <script>
@@ -29,17 +29,8 @@
   function jqOptionByValue(obj,key){
     return obj[key];
   }
-  // $('#input-tags').selectize({
-  //     delimiter: ',',
-  //     persist: false,
-  //     create: function(input) {
-  //         return {
-  //             value: input,
-  //             text: input
-  //         }
-  //     }
-  // });
   </script>
+<h1> Without angular</h1>
   <!-- ************** Email Contacts Demo ************** -->
           <section class="demo">
             <div class="header">
@@ -60,7 +51,6 @@
               Max Items
             </div>
             <div class="sandbox">
-              <label for="select-box">s:</label>
               <select id="select-box" name="s[]" multiple class="demo-default" style="width:70%" placeholder="Select a box...">
                 <option value="">Select a box...</option>
                 <option value="big">big</option>
@@ -70,15 +60,14 @@
             <div class="description">
               box for test
             </div>
+          </section>
 
           <!-- ************** MAX ITEM DEMO ************ -->
-          </section>
   <section class="demo">
   					<div class="header">
   						Max Items
   					</div>
   					<div class="sandbox">
-  						<label for="select-state">States:</label>
   						<select id="select-state" name="state[]" multiple class="demo-default" style="width:70%" placeholder="Select a state...">
   							<option value="">Select a state...</option>
   							<option value="AL">Alabama</option>

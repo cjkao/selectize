@@ -9,12 +9,15 @@ environment:
 
 dependencies:
   browser: ^0.10.0
-#  reflectable: ^0.3.1
   js: ^0.6.0
-  dart_to_js_script_rewriter: any
   func: any
+dev_dependencies:
+  angular2: 2.0.0-beta.0
+  dart_to_js_script_rewriter: any
 transformers:
 - dart_to_js_script_rewriter
+- angular2:
+    entry_points: web/index.dart
 #- web_components:
 #    entry_points: web/index.html
 #- reflectable:
