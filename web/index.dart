@@ -127,6 +127,7 @@ var REGEX_EMAIL = r"([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}
 
 /// [MainApp] used!
 main() async {
+  jqSelectBootstrap();
   bootstrap(AppComponent);
   var iTag = selectize('#select-box');
   print(iTag.options);

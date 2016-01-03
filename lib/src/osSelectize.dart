@@ -1,15 +1,43 @@
+// All rights reserved. Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 library osSelectize;
 
 import 'package:js/js.dart';
-import 'dart:js';
 import 'package:func/func.dart';
+import 'dart:html';
 
-///e string or array
+/// [value] string or array
 typedef EventHandler(value);
 
-@JS("jqSelectize")
+/// link jQuery and Selectize with helper function
+/// global object __DartJsSelect will inject to document head
+jqSelectBootstrap() {
+  if (querySelector('#__DartJqSelect') == null) {
+    var scr = new ScriptElement();
+    scr.id = '__DartJqSelect';
+
+    scr.appendText(r"""
+  var __DartJqSelect = __DartJqSelect || {
+    create:function (selector, option){
+      return $(selector).selectize(option)[0].selectize;
+    },
+    getOptionByValue:function (obj,key){
+      return obj[key];
+    }
+  };
+  """);
+    querySelector('head').append(scr);
+  }
+}
+
+@JS("__DartJqSelect.create")
 external Selectize selectize(String selector, [SelectOptions]);
 
+/// access option value by it's dynamic key
+@JS("__DartJqSelect.getOptionByValue")
+external OptValue optionByValue(Options options, String key);
+
+/// Selectize Configuration
 @JS()
 @anonymous
 class SelectOptions {
@@ -243,7 +271,6 @@ class Selectize {
 
 /*  for EVENT **********************************/
   /// [event] including following
-  ///   'initialize'
   ///		'change'
   ///   'item_add'
   ///		'item_remove'
@@ -299,10 +326,6 @@ class Options {
   external Options();
 }
 
-/// access option value by it's dynamic key
-@JS("jqOptionByValue")
-external OptValue optionByValue(Options options, String key);
-
 //TODO base object can be $order
 @JS()
 @anonymous
@@ -340,7 +363,3 @@ class MailBaseOption extends BaseOption {
   external String get name;
   external factory MailBaseOption({String email, String name});
 }
-//class OptValue
-// @JS()
-// @anonymous
-// class Items { external String score, }

@@ -1,5 +1,5 @@
 name: 'selectize'
-version: 0.1.0
+version: 0.1.1
 author: CJKAO <kaopeter@gmail.com>
 description: dart selectize js wrapper
 homepage: https://cjkao.github.io/selectize
