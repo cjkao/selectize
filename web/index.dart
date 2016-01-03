@@ -20,7 +20,8 @@ class AppComponent {}
 
 @Component(selector: 'jq-selective')
 @View(
-    template: r'''<div> {{selectedValue}}</div>
+    template: r'''
+<div> {{selectedValue}}</div>
 <select  [ngClass]="classes"    placeholder="Pick some people..."></select>
             ''',
     directives: const [NgClass])
