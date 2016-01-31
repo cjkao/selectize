@@ -3,6 +3,7 @@
 library osSelectize;
 
 import 'package:js/js.dart';
+import 'dart:js';
 import 'package:func/func.dart';
 import 'dart:html';
 
@@ -26,6 +27,9 @@ jqSelectBootstrap() {
     }
   };
   """);
+    //var selectizeJs = new ScriptElement();
+    //selectizeJs.src = 'packages/selectize/selectize.js';
+    //querySelector('head').append(selectizeJs);
     querySelector('head').append(scr);
   }
 }
@@ -238,6 +242,7 @@ class Selectize {
   ///Adds an available option, or array of options. If it already exists, nothing will happen.
   ///Note: this does not refresh the options list dropdown (use refreshOptions() for that).
   external addOption(OptValue data);
+  addOptions(List<OptValue> list) => list.forEach(addOption);
 
   ///Updates an option available for selection. If it is visible in the selected items or options dropdown,
   ///it will be re-rendered automatically.
