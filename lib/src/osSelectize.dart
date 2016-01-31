@@ -242,7 +242,8 @@ class Selectize {
   ///Adds an available option, or array of options. If it already exists, nothing will happen.
   ///Note: this does not refresh the options list dropdown (use refreshOptions() for that).
   external addOption(OptValue data);
-  addOptions(List<OptValue> list) => list.forEach(addOption);
+
+  //addOptions(List<OptValue> list) => list.forEach(addOption);
 
   ///Updates an option available for selection. If it is visible in the selected items or options dropdown,
   ///it will be re-rendered automatically.
