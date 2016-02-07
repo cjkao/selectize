@@ -128,7 +128,7 @@ var REGEX_EMAIL = r"([a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}
 
 /// [MainApp] used!
 main() async {
-  jqSelectBootstrap();
+  await jqSelectBootstrap();
   bootstrap(AppComponent);
   var iTag = selectize('#select-box');
   print(iTag.options);
@@ -141,7 +141,7 @@ main() async {
     new MailBaseOption(email: 'someone@gmail.com'),
     new MailBaseOption(email: "c@a.com", name: "c")
   ];
-  var emailSelect = selectize(
+  Selectize emailSelect = selectize(
       "#select-to",
       new SelectOptions(
           onInitialize: allowInterop(() {

@@ -3,7 +3,7 @@
 library osSelectize;
 
 import 'package:js/js.dart';
-import 'dart:js';
+//import 'dart:js';
 import 'package:func/func.dart';
 import 'dart:html';
 
@@ -277,6 +277,7 @@ class Selectize {
 
 /*  for EVENT **********************************/
   /// [event] including following
+  /// initialize, Invoked once the control is completely initialized.
   ///		'change'
   ///   'item_add'
   ///		'item_remove'
@@ -289,11 +290,12 @@ class Selectize {
   ///		'optgroup_clear'
   ///		'dropdown_open'
   ///		'dropdown_close'
-  ///		'type'
+  ///		'type'   Invoked when the user types while filtering options.
   ///		'load'
   ///		'focus'
   ///		'blur'
   /// [handler] must call allowInterOp, trigger from jquery
+  /// see [https://github.com/selectize/selectize.js/blob/master/docs/events.md]
   external on(String event, EventHandler handler);
 
   /// remove event listener

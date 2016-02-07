@@ -13,6 +13,7 @@ dependencies:
   func: ^0.1.0
 dev_dependencies:
   angular2: ^2.0.0-beta.0
+  polymer: ^1.0.0
 #  dart_to_js_script_rewriter: any
 #transformers:
 #- dart_to_js_script_rewriter
