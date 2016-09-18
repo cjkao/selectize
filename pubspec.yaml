@@ -1,30 +1,33 @@
 name: 'selectize'
-version: 0.1.2
+version: 0.1.4
 author: CJKAO <kaopeter@gmail.com>
 description: dart selectize js wrapper
 homepage: https://github.com/cjkao/selectize
 
 environment:
   sdk: '>=1.9.0 <2.0.0'
-
 dependencies:
   browser: ^0.10.0
   js: ^0.6.0
   func: ^0.1.0
+#  difter:
+#    path: ../difter
 dev_dependencies:
   angular2: ^2.0.0-beta.0
-  polymer: ^1.0.0
+  test: ^0.12.10
+#  polymer: ^1.0.0
 #  dart_to_js_script_rewriter: any
-#transformers:
+transformers:
 #- dart_to_js_script_rewriter
-#- angular2:
-#    entry_points: web/index.dart
+- angular2:
+    entry_points: web/index.dart
 #- web_components:
 #    entry_points: web/index.html
 #- reflectable:
 #    entry_points: web/index.dart
-#- $dart2js:
-#    minify: true
-#    commandLineOptions:
-#    - --trust-type-annotations
-#    - --trust-primitives
+- $dart2js:
+    minify: true
+    commandLineOptions:
+    - --trust-type-annotations
+    - --trust-primitives
+    - --enable-experimental-mirrors

@@ -270,3 +270,6 @@ class NgSelectize implements AfterViewInit, OnDestroy, OnInit {
 ```
 * Utils.isArray is changed in  `selectize.js` for chormium  
 * GroupOption not wrapped
+
+# test
+`pub run test test/testCommon.dart -p dartium`

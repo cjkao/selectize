@@ -1,8 +1,10 @@
 // All rights reserved. Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+@JS()
 library osSelectize;
 
 import 'package:js/js.dart';
+//import 'dart:js' as djs;
 //import 'dart:js';
 import 'package:func/func.dart';
 import 'dart:html';
@@ -34,8 +36,12 @@ jqSelectBootstrap() {
   }
 }
 
+//@JS('window.jQuery')
+//external jquery(String selector);
+
 @JS("__DartJqSelect.create")
 external Selectize selectize(String selector, [SelectOptions]);
+//Selectize selectize(String selector, [SelectOptions ops]) => jquery(selector)[0].selectize([ops])[0]; //, [ops]);
 
 /// access option value by it's dynamic key
 @JS("__DartJqSelect.getOptionByValue")
@@ -47,6 +53,7 @@ external OptValue optionByValue(Options options, String key);
 class SelectOptions {
   /// list of [valueField], read only in Dartium, work in Chrome
   external List<String> get items;
+  external void set items(_);
 
   ///The string to separate items by.
   ///  This option is only used when Selectize is instantiated
@@ -56,9 +63,14 @@ class SelectOptions {
   ///The max number of items to render at once in the dropdown list of options.
   /// default: 1000
   external int get maxOptions;
+  external void set maxOptions(int _);
 
   /// max selectable item
   external int get maxItems; //: 3
+
+  /// set max selectable items
+  external void set maxItems(int _); //: 3
+
   external String get valueField;
   external String get labelField;
 
@@ -146,61 +158,71 @@ class SelectOptions {
   ///nvoked when the user types while filtering options.
   external VoidFunc1<String> get onType;
 
-  external factory SelectOptions(
-      {List items,
-      String delimiter,
-      int maxOptions,
-      int maxItems,
-      String valueField,
-      String labelField,
-      String sortField,
-      List<BaseOption> options,
-      List<String> searchField,
-      List<String> plugins,
-      RenderFuns render,
-      bool createOnBlur,
-      Func1<bool, String> createFilter,
-      Func2<bool, String, Function> create,
-      bool highlight,
-      bool persist,
-      bool openOnFocus,
-      bool hideSelected,
-      bool closeAfterSelec,
-      VoidFunc0 onInitialize,
-      VoidFunc0 onFocus,
-      VoidFunc0 onBlur,
-      VoidFunc1 onChange,
-      VoidFunc2 onItemAdd,
-      VoidFunc1 onItemRemove,
-      VoidFunc1 onDelete,
-      VoidFunc2 onOptionAdd,
-      VoidFunc1 onOptionRemove});
+  external factory SelectOptions({
+    List items,
+    String delimiter,
+    int maxOptions,
+    int maxItems,
+    String valueField,
+    String labelField,
+    String sortField,
+    List<BaseOption> options,
+    List<String> searchField,
+    List<String> plugins,
+    RenderFuns render,
+    bool createOnBlur,
+    Func1<bool, String> createFilter,
+    Func2<String, VoidFunc0, dynamic> create,
+    bool highlight,
+    bool persist,
+    bool openOnFocus,
+    bool hideSelected,
+    bool closeAfterSelec,
+    VoidFunc0 onInitialize,
+    VoidFunc1 onChange,
+    VoidFunc2 onItemAdd,
+    VoidFunc1 onItemRemove,
+    VoidFunc0 onClear,
+    VoidFunc2 onOptionAdd,
+    VoidFunc1 onOptionRemove,
+    VoidFunc1 onOptionClear,
+    VoidFunc2 onOptionGroupAdd,
+    VoidFunc1 onOptionGroupRemove,
+    VoidFunc0 onOptionGroupClear,
+    VoidFunc1 onDropdownOpen,
+    VoidFunc1 onDropdownClose,
+    VoidFunc1 onType,
+    VoidFunc1 onLoad,
+    VoidFunc0 onFocus,
+    VoidFunc0 onBlur,
+  });
 }
 
 @JS("Selectize")
 class Selectize {
   external Selectize();
 /** for items ************************/
+  external SelectOptions get settings;
 
   ///"Selects" an item. Adds it to the list at the current caret position.
   ///  If [silent] is true, no change event will be fired on the original input.
-  external void addItem(String value, bool silent);
+  external void addItem(String value, [bool silent = false]);
 
   ///Removes the selected item matching the provided value.
   ///  If [silent] is truthy, no change event will be fired on the original input.
-  external void removeItem(value, silent);
+  external void removeItem(value, [bool silent = false]);
 
   ///Invokes the "create" method provided in the selectize options that should provide the data for the new item,
   ///  given the user input. Once this completes, it will be added to the item list.
   //external createItem(value, callback);
-  external createItem(value);
+  external createItem(value, [bool triggerDropDwon]);
 
   /// Re-renders the selected item lists.
   external refreshItems();
 
   ///Resets or clears all selected items from the control. If [silent] is truthy,
   ///j no change event will be fired on the original input.
-  external clear(bool silent);
+  external clear([bool silent = false]);
 
 /*  Other      ******** *****/
   ///Destroys the control and unbinds event listeners so that it can be garbage collected.
@@ -227,7 +249,11 @@ class Selectize {
   /// this returns an array. If only one item can be selected, this returns a string.
   external getValue();
 
-  external void setValue(value, bool silent);
+  ///
+  ///  Resets the selected items to the given value.
+  ///  @param {mixed} value
+  ///
+  external void setValue(value, [bool silent = false]);
 
   ///Moves the caret to the specified position ("index" being the index in the list of selected items).
   external void setCaret(index);
@@ -268,8 +294,9 @@ class Selectize {
 
   /// Calculates and applies the appropriate position of the dropdown.
   external void positionDropdown();
-/** Properties  *******************************************************/
-  ///A list of matched results.
+
+  /** Properties  *******************************************************/
+  /// A list of matched results. [items] selected options
   external List<String> get items;
 
   /// An object containing the entire pool of options. The object is keyed by each object's value.

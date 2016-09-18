@@ -7,7 +7,9 @@ import 'dart:async';
 import 'package:js/js.dart';
 import 'package:selectize/selectize.dart';
 import 'package:angular2/angular2.dart';
-import 'package:angular2/bootstrap.dart';
+import 'package:angular2/core.dart';
+import 'package:angular2/platform/browser.dart';
+
 import 'dart:math' as math;
 
 @Component(
@@ -134,7 +136,7 @@ main() async {
   print(iTag.options);
   var selState = selectize('#select-state',
       new SelectOptions(maxItems: 5, maxOptions: 3, plugins: ['restore_on_backspace', 'remove_button', 'drag_drop']));
-  var se = querySelector("#select-state");
+  querySelector("#select-state");
   var mailOptions = [
     new MailBaseOption(email: 'nikola@tesla.com', name: 'Nikola Tesla'),
     new MailBaseOption(email: 'brian@thirdroute.com', name: 'Brian Reavis'),
@@ -178,12 +180,17 @@ main() async {
             }
           }),
           options: mailOptions));
-  emailSelect.on('change', (e) {
+  emailSelect.on('change', allowInterop((e) {
     print(emailSelect.items);
-  });
-  var seCount = selectize('#select-country');
+  }));
+  var seCount = selectize('#select-country')
+    ..addItem('NZ')
+    ..setValue('TW');
   //emailSelect.createItem("d@a.com", () {});
-  emailSelect.createItem("d@a.com");
+  emailSelect.createItem("d@a.com", false);
+
+  emailSelect.settings.maxItems = 4;
+  //emailSelect.settings.options = [new OptValue(value: 'a@a', text: 'a')];
   selState.on('change', allowInterop((e) {
     print('change evt $e');
   }));
@@ -191,10 +198,10 @@ main() async {
     print('change evt $e');
   }));
 //  new Timer.periodic(new Duration(seconds: 2), (timer) {
-  new Timer(new Duration(seconds: 1), () {
+  new Timer(new Duration(seconds: 4), () {
 //  selState.off('change');
 //    selState.print("is lock: ${selState.isLocked}");
-    se.selectedOptions.forEach((o) => print(o.value));
+    //  se.selectedOptions.forEach((o) => print(o.value));
     //print(iTag.getOption('small'));
     iTag.addOption(new OptValue(value: "tiny", text: 'TINY'));
     iTag.refreshOptions(true);
@@ -203,4 +210,13 @@ main() async {
 //    print(iTag.items);
     //iTag.destroy();
   });
+  bookExample();
+}
+
+void bookExample() {
+  var book = selectize('#select-book', new SelectOptions()..maxItems = 1);
+  book.disable();
+  var book2 = selectize('#select-book-2', new SelectOptions()..maxItems = 2);
+  book2.addOption(new OptValue(value: '1', text: 'a'));
+  book2.addOption(new OptValue(value: '21', text: 'ba'));
 }
