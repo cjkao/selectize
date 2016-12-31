@@ -3,49 +3,41 @@
 @JS()
 library osSelectize;
 
+import 'package:js/js_util.dart';
 import 'package:js/js.dart';
-//import 'dart:js' as djs;
+//import 'dart:js' as dartjs;
+import 'dart:js' as js;
 //import 'dart:js';
 import 'package:func/func.dart';
-import 'dart:html';
+//import 'dart:html';
 
 /// [value] string or array
 typedef EventHandler(value);
 
 /// link jQuery and Selectize with helper function
 /// global object __DartJsSelect will inject to document head
-jqSelectBootstrap() {
-  if (querySelector('#__DartJqSelect') == null) {
-    var scr = new ScriptElement();
-    scr.id = '__DartJqSelect';
+@deprecated
+jqSelectBootstrap() {}
 
-    scr.appendText(r"""
-  var __DartJqSelect = __DartJqSelect || {
-    create:function (selector, option){
-      return $(selector).selectize(option)[0].selectize;
-    },
-    getOptionByValue:function (obj,key){
-      return obj[key];
-    }
-  };
-  """);
-    //var selectizeJs = new ScriptElement();
-    //selectizeJs.src = 'packages/selectize/selectize.js';
-    //querySelector('head').append(selectizeJs);
-    querySelector('head').append(scr);
-  }
+@JS("\$")
+external JQuery _jquery(String selector);
+
+@anonymous
+@JS()
+abstract class JQuery {
+  external JQuery selectize([options]);
 }
-
-//@JS('window.jQuery')
-//external jquery(String selector);
-
-@JS("__DartJqSelect.create")
-external Selectize selectize(String selector, [SelectOptions]);
-//Selectize selectize(String selector, [SelectOptions ops]) => jquery(selector)[0].selectize([ops])[0]; //, [ops]);
 
 /// access option value by it's dynamic key
 @JS("__DartJqSelect.getOptionByValue")
 external OptValue optionByValue(Options options, String key);
+OptValue optionValue(Options options, String key) => getProperty(options, key);
+List<OptValue> optionList(Options options) {
+  var keys = js.context['Object'].callMethod('keys', [options]);
+  List<OptValue> ops = [];
+  keys.forEach((_) => ops.add(getProperty(options, _)));
+  return ops;
+}
 
 /// Selectize Configuration
 @JS()
@@ -59,63 +51,200 @@ class SelectOptions {
   ///  This option is only used when Selectize is instantiated
   /// from a <input type="text"> element.
   external String get delimiter;
+  external void set delimiter(String delimiter);
 
   ///The max number of items to render at once in the dropdown list of options.
   /// default: 1000
   external int get maxOptions;
   external void set maxOptions(int _);
 
-  /// max selectable item
-  external int get maxItems; //: 3
+  /// The max number of items the user can select.
+  /// Default: Infinity
+  external num get maxItems;
+  external set maxItems(num v);
 
-  /// set max selectable items
-  external void set maxItems(int _); //: 3
+  //external List<BaseOption> get options;
 
-  external String get valueField;
-  external String get labelField;
-
-  /// String or Array
-  ///A single field or an array of fields to sort by. Each item in the array should be an object containing
-  ///  at least a "field" property.
-  /// Optionally, "direction" can be set to "asc" or "desc". The order of the array defines the sort precedence.
-  external String get sortField;
-
-  external List<BaseOption> get options;
-  external List<String> get searchField;
-  external List<String> get plugins; //: ['restore_on_backspace']
   external RenderFuns get render;
 
-  ///If true, when user exits the field (clicks outside of input or presses ESC)
-  /// new option is created and selected (if `create`-option is enabled).
+  /// If true, when user exits the field (clicks outside of input or presses ESC) new option is created and
+  /// selected (if `create`-option is enabled).
+  /// Default: false
   external bool get createOnBlur;
+  external set createOnBlur(bool v);
 
-  ///Specifies a RegExp or String containing a regular expression that the current search filter must match to be
-  /// allowed to be created. May also be a predicate function that takes the filter text and returns whether it is allowed.
-  external Func1<bool, String> get createFilter;
+  /// Specifies a RegExp or String containing a regular expression that the current search filter must match to
+  /// be allowed to be created. May also be a predicate function that takes the filter text and returns whether
+  /// it is allowed.
+  /// Default: null
+  external dynamic get createFilter;
+  external set createFilter(dynamic v);
 
-  /// "input" and "callback". The callback should be invoked with the final data for the option.
-  external Func2<bool, String, Function> get create;
+  /// Allows the user to create a new items that aren't in the list of options.
+  /// This option can be any of the following: "true", "false" (disabled), or a function that accepts two
+  /// arguments: "input" and "callback". The callback should be invoked with the final data for the option.
+  /// Default: false
+  external dynamic get create;
+  external set create(dynamic v);
 
-  ///Toggles match highlighting within the dropdown menu.
-  /// default: true
+  /// Toggles match highlighting within the dropdown menu.
+  /// Default: true
   external bool get highlight;
+  external set highlight(bool v);
 
-  ///If false, items created by the user will not show up as available options once they are unselected.
-  ///default: true
+  /// If false, items created by the user will not show up as available options once they are unselected.
+  /// Default: true
   external bool get persist;
+  external set persist(bool v);
 
-  ///Show the dropdown immediately when the control receives focus.
-  /// default true
+  /// Show the dropdown immediately when the control receives focus.
+  /// Default: true
   external bool get openOnFocus;
+  external set openOnFocus(bool v);
 
-  ///If true, the items that are currently selected will not be shown in the dropdown list of available options.
-  /// default true
+  /// If true, the items that are currently selected will not be shown in the dropdown list of available options.
+  /// Default: false
   external bool get hideSelected;
+  external set hideSelected(bool v);
 
   ///  If true, the dropdown will be closed after a selection is made.
   /// default: false
   external bool get closeAfterSelect;
+  external set closeAfterSelect(bool v);
+
+  /// If true, Selectize will treat any options with a "" value like normal. This defaults to false to
+  /// accomodate the common <select> practice of having the first empty option act as a placeholder.
+  /// Default: false
+  external bool get allowEmptyOption;
+  external set allowEmptyOption(bool v);
+
+  /// The animation duration (in milliseconds) of the scroll animation triggered when going [up] and [down] in
+  /// the options dropdown.
+  /// Default: 60
+  external num get scrollDuration;
+  external set scrollDuration(num v);
+
+  /// The number of milliseconds to wait before requesting options from the server or null.
+  /// If null, throttling is disabled.
+  /// Default: 300
+  external num get loadThrottle;
+  external set loadThrottle(num v);
+
+  /// If true, the "load" function will be called upon control initialization (with an empty search).
+  /// Alternatively it can be set to "focus" to call the "load" function when control receives focus.
+  /// Default: false
+  external dynamic get preload;
+  external set preload(dynamic v);
+
+  /// The element the dropdown menu is appended to. This should be "body" or null.
+  /// If null, the dropdown will be appended as a child of the selectize control.
+  /// Default: null
+  external String get dropdownParent;
+  external set dropdownParent(String v);
+
+  /// Sets if the "Add..." option should be the default selection in the dropdown.
+  /// Default: false
+  external bool get addPrecedence;
+  external set addPrecedence(bool v);
+
+  /// If true, the tab key will choose the currently selected item.
+  /// Default: false
+  external bool get selectOnTab;
+  external set selectOnTab(bool v);
+
+  /// An array of plugins to use
+  /// Default: null
+  external List<String> get plugins;
+  external set plugins(List<String> v);
+
+  /// Data / Searching
+  /// ------------------------------------------------------------------------------------------------------------
+  /// Options available to select; array of objects. If your element is <select> with <option>s specified this
+  /// property gets populated accordingly. Setting this property is convenient if you have your data as an
+  /// array and want to automatically generate the <option>s.
+  /// Default: []
+  external List<BaseOption> get options;
+  external set options(List<BaseOption> v);
+
+  /// The <option> attribute from which to read JSON data about the option.
+  /// Default: "data-data"
+  external String get dataAttr;
+  external set dataAttr(String v);
+
+  /// The name of the property to use as the "value" when an item is selected.
+  /// Default: "value"
+  external String get valueField;
+  external set valueField(String v);
+
+  /// Option groups that options will be bucketed into.
+  /// If your element is a <select> with <optgroup>s this property gets populated automatically.
+  /// Make sure each object in the array has a property named whatever "optgroupValueField" is set to.
+  external List<BaseOption> get optgroups;
+  external set optgroups(List<BaseOption> v);
+
+  /// The name of the option group property that serves as its unique identifier.
+  /// Default: "value"
+  external String get optgroupValueField;
+  external set optgroupValueField(String v);
+
+  /// The name of the property to render as an option / item label (not needed when custom rendering
+  /// functions are defined).
+  /// Default: "text"
+  external String get labelField;
+  external set labelField(String v);
+
+  /// The name of the property to render as an option group label (not needed when custom rendering
+  /// functions are defined).
+  /// Default: "label"
+  external String get optgroupLabelField;
+  external set optgroupLabelField(String v);
+
+  /// The name of the property to group items by.
+  /// Default: "optgroup"
+  external String get optgroupField;
+  external set optgroupField(String v);
+
+  /// A single field or an array of fields to sort by. Each item in the array should be an object containing at
+  /// least a "field" property. Optionally, "direction" can be set to "asc" or "desc". The order of the array
+  /// defines the sort precedence.
+  /// Unless present, a special "$score" field will be automatically added to the beginning of the sort list.
+  /// This will make results sorted primarily by match quality (descending).
+  /// Default: "$order"
+  external dynamic get sortField;
+  external set sortField(dynamic v);
+
+  /// An array of property names to analyze when filtering options.
+  /// Default: ["text"]
+  external dynamic get searchField;
+  external set searchField(dynamic v);
+
+  /// When searching for multiple terms (separated by a space), this is the operator used. Can be "and" or "or".
+  /// Default: "and"
+  external String get searchConjunction;
+  external set searchConjunction(String v);
+
+  /// An array of optgroup values that indicates the order they should be listed in in the dropdown.
+  /// If not provided, groups will be ordered by the ranking of the options within them.
+  /// Default: null
+  external List<String> get optgroupOrder;
+  external set optgroupOrder(List<String> v);
+
+  /// Copy the original input classes to the Dropdown element.
+  /// Default: true
+  external bool get copyClassesToDropdown;
+  external set copyClassesToDropdown(bool v);
+
   //************** CALLBACK ***********************//
+  /// Callbacks
+  /// ------------------------------------------------------------------------------------------------------------
+  /// Invoked when new options should be loaded from the server.
+  external dynamic load(String query, Function callback);
+
+  /// Overrides the scoring function used to sort available options. The provided function should return a
+  /// function that returns a number greater than or equal to zero to represent the "score" of an item
+  /// (the function's first argument). If 0, the option is declared not a match.
+  external Func1<dynamic, num> score(search);
+
   ///Invoked once the control is completely initialized.
   external VoidFunc0 get onInitialize;
 
@@ -164,20 +293,30 @@ class SelectOptions {
     int maxOptions,
     int maxItems,
     String valueField,
+    List<BaseOption> optgroups,
     String labelField,
     String sortField,
     List<BaseOption> options,
-    List<String> searchField,
+    dynamic searchField,
+    String searchConjunction,
     List<String> plugins,
     RenderFuns render,
     bool createOnBlur,
     Func1<bool, String> createFilter,
-    Func2<String, VoidFunc0, dynamic> create,
+    /*  bool or function*/
+    dynamic create,
     bool highlight,
     bool persist,
     bool openOnFocus,
     bool hideSelected,
-    bool closeAfterSelec,
+    bool closeAfterSelect,
+    bool allowEmptyOption,
+    num scrollDuration,
+    num loadThrottle,
+    dynamic preload,
+    String dropdownParent,
+    bool addPrecedence,
+    bool selectOnTab,
     VoidFunc0 onInitialize,
     VoidFunc1 onChange,
     VoidFunc2 onItemAdd,
@@ -199,7 +338,7 @@ class SelectOptions {
 }
 
 @JS("Selectize")
-class Selectize {
+abstract class Selectize {
   external Selectize();
 /** for items ************************/
   external SelectOptions get settings;
@@ -212,10 +351,10 @@ class Selectize {
   ///  If [silent] is truthy, no change event will be fired on the original input.
   external void removeItem(value, [bool silent = false]);
 
-  ///Invokes the "create" method provided in the selectize options that should provide the data for the new item,
+  ///Invokes the [create] method provided in the selectize options that should provide the data for the new item,
   ///  given the user input. Once this completes, it will be added to the item list.
   //external createItem(value, callback);
-  external createItem(value, [bool triggerDropDwon]);
+  external createItem(value, [bool triggerDropDwon = false]);
 
   /// Re-renders the selected item lists.
   external refreshItems();
@@ -267,7 +406,7 @@ class Selectize {
 
   ///Adds an available option, or array of options. If it already exists, nothing will happen.
   ///Note: this does not refresh the options list dropdown (use refreshOptions() for that).
-  external addOption(OptValue data);
+  external addOption(dynamic /*List or OptValue*/ data);
 
   //addOptions(List<OptValue> list) => list.forEach(addOption);
 
@@ -397,4 +536,19 @@ class MailBaseOption extends BaseOption {
   external String get email;
   external String get name;
   external factory MailBaseOption({String email, String name});
+}
+
+Selectize selectize(String selector, [SelectOptions opt]) {
+  if (opt == null) {
+    opt = new SelectOptions();
+  }
+  if (opt.create == null) {
+    opt.create = true;
+  }
+  var j0 = _jquery(selector);
+  var j1 = j0.selectize(opt);
+  print('hasp   ${hasProperty(j1,"0")}');
+  var x1 = getProperty(j1, '0');
+  var x2 = getProperty(x1, 'selectize');
+  return x2;
 }
