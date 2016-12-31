@@ -369,3 +369,8 @@ body {
   	display: block;
   	opacity: 0.5;
   }
+ .sandbox{
+   background-color: #fafafa;
+   margin: 10px;
+   padding:10px
+ }

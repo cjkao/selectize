@@ -4,22 +4,16 @@ Selectize wrapper
 # Setup
 * include snippets after dart script
 ```javascript
-<script src='jquery214.js'></script>
+<script src='jquery220.js'></script>
 <script src='jqueryui.min.js'></script> // only for drag and drop
 <script src='packages/selectize/selectize.js'></script>
 <link rel="stylesheet" href="packages/selectize/selectize.css">
 ```
-* In `main()`, call `jqSelectBootstrap()` to inject bridge to jquery and selectize
 
 ---
 
 # Example
 see web/index.html
-## Bootstrap
-* DART
-```dart
-  jqSelectBootstrap();
-```  
 
 ## Simple case
 * dart
@@ -53,7 +47,7 @@ see web/index.html
 
 ## Complex customize
 
-* dart
+* create your own new option class from `BaseOption`
 
 ```dart
 
@@ -260,6 +254,10 @@ class NgSelectize implements AfterViewInit, OnDestroy, OnInit {
 }
 
 ```
+#Utility
+* `jsRegExp(String regStr)` create JS regexp
+* `optionByValue(item_value)` return OptValue by given value
+* `List<OptValue> optionList(Options options)` return list of OptValue
 
 # Note
 * allowInterop is necessary for callback
@@ -270,6 +268,7 @@ class NgSelectize implements AfterViewInit, OnDestroy, OnInit {
 ```
 * Utils.isArray is changed in  `selectize.js` for chormium  
 * GroupOption not wrapped
+
 
 # test
 `pub run test test/testCommon.dart -p dartium`

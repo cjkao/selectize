@@ -3,4 +3,6 @@
 
 library selectize;
 
+export 'src/base.dart';
+export 'src/configuration.dart';
 export 'src/osSelectize.dart';

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectize</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="packages/selectize/selectize.css">
+</head>
+
+<body unresolved>
+    <script src='jquery220.js'></script>
+    <script src='jqueryui.min.js'></script>
+    <script src='packages/selectize/selectize.js'></script>
+    <script defer type="application/dart" src="email.dart"></script>
+    <script defer src="packages/browser/dart.js"></script>
+
+    <h1> </h1>
+
+    <!-- ************** Email Contacts Demo ************** -->
+    <section class="demo">
+        <div class="header">
+            Email Contacts:
+        </div>
+        <div class="sandbox">
+            <label for="select-to">Email: <span class='mail'></span></label>
+            <select id="select-to" class="contacts" placeholder="Pick some people..."></select>
+        </div>
+        <div class="description">
+            This demonstrates two main things: (1) custom item and option rendering, and (2) item creation on-the-fly. Try typing a valid and invalid email address. (3) sort by customized index field
+        </div>
+
+        <div class="description">
+            createFilter must provided to prevent creation on invalid mail format
+        </div>
+        <div class="description">
+            not to apply 'overflow' style on container
+        </div>
+    </section>
+
+
+
+
+
+</body>
+
+</html>

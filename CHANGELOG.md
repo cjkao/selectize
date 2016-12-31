@@ -1,4 +1,7 @@
 # Changelog
+## 0.1.5
+  * update selectize to 0.12.4
+  * depreciate bootstrap function
 ## 0.1.4
   update selectize to 0.12.3
 ## 0.1.3
