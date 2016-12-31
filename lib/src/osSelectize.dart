@@ -29,9 +29,10 @@ abstract class JQuery {
 }
 
 /// access option value by it's dynamic key
-@JS("__DartJqSelect.getOptionByValue")
-external OptValue optionByValue(Options options, String key);
-OptValue optionValue(Options options, String key) => getProperty(options, key);
+OptValue optionByValue(Options options, String key) {
+  return getProperty(options, key);
+}
+
 List<OptValue> optionList(Options options) {
   var keys = js.context['Object'].callMethod('keys', [options]);
   List<OptValue> ops = [];
