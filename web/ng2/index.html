@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selectize</title>
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="packages/selectize/selectize.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectize</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../packages/selectize/selectize.css">
 </head>
 
 <body unresolved>
-<section class="demo">
-  <my-app>Loading...</my-app>
-</section>
-  <script defer type="application/dart" src="index.dart"></script>
-  <script defer  src="packages/browser/dart.js"></script>
-  <script src='jquery220.js'></script>
-  <script src='packages/selectize/selectize.js'></script>
-  <script src='jqueryui.min.js'></script>
+    <section class="demo">
+        <my-app>Loading...</my-app>
+    </section>
+    <script defer type="application/dart" src="index.dart"></script>
+    <script defer src="../packages/browser/dart.js"></script>
+    <script src='../jquery220.js'></script>
+    <script src='../packages/selectize/selectize.js'></script>
+    <script src='../jqueryui.min.js'></script>
 
-<h1> Without angular</h1>
-  <!-- ************** Email Contacts Demo ************** -->
-          <section class="demo">
-            <div class="header">
-              Email Contacts
-            </div>
-            <div class="sandbox">
-              <label for="select-to">Email:</label>
-              <select id="select-to" class="contacts" placeholder="Pick some people..."></select>
-            </div>
-            <div class="description">
-              This demonstrates two main things: (1) custom item and option rendering, and (2) item creation on-the-fly.
-              Try typing a valid and invalid email address.
-            </div>
+    <h1> Without angular</h1>
+    <!-- ************** Email Contacts Demo ************** -->
+    <section class="demo">
+        <div class="header">
+            Email Contacts
+        </div>
+        <div class="sandbox">
+            <label for="select-to">Email:</label>
+            <select id="select-to" class="contacts" placeholder="Pick some people..."></select>
+        </div>
+        <div class="description">
+            This demonstrates two main things: (1) custom item and option rendering, and (2) item creation on-the-fly. Try typing a valid and invalid email address.
+        </div>
 
-          </section>
-  <section class="demo">
-            <div class="header">
-              Max Items
-            </div>
-            <div class="sandbox">
-              <select id="select-box" name="s[]" multiple class="demo-default" style="width:70%" placeholder="Select a box...">
+    </section>
+    <section class="demo">
+        <div class="header">
+            Max Items
+        </div>
+        <div class="sandbox">
+            <select id="select-box" name="s[]" multiple class="demo-default" style="width:70%" placeholder="Select a box...">
                 <option value="">Select a box...</option>
                 <option value="big">big</option>
                 <option value="small" selected>small</option>
               </select>
-            </div>
-            <div class="description">
-              box for test
-            </div>
-          </section>
+        </div>
+        <div class="description">
+            box for test
+        </div>
+    </section>
 
-          <section class="demo-for-empty">
-            <div class="header">
-               init in disable state</div>
-            <div class="sandbox">
-  						<select id="select-book"  class="demo" style="width:70%" placeholder="Select a book...">
+    <section class="demo-for-empty">
+        <div class="header">
+            init in disable state</div>
+        <div class="sandbox">
+            <select id="select-book" class="demo" style="width:70%" placeholder="Select a book...">
               </select>
-            </div>
-            <div class="description">
-               init in disable state
-            </div>
+        </div>
+        <div class="description">
+            init in disable state
+        </div>
 
-          </section>
-          <section class="for-empty-add-item">
-            <div class="header">
-              Program init some options
-            </div>
-            <div class="sandbox">
-              <select id="select-book-2"  class="xdemo" style="width:70%" placeholder="Select a book...">
+    </section>
+    <section class="for-empty-add-item">
+        <div class="header">
+            Program init some options
+        </div>
+        <div class="sandbox">
+            <select id="select-book-2" class="xdemo" style="width:70%" placeholder="Select a book...">
               </select>
-            </div>
-            <div class="description">
-              add some options after initialize
-            </div>
+        </div>
+        <div class="description">
+            add some options after initialize
+        </div>
 
-          </section>
+    </section>
 
-          <!-- ************** MAX ITEM DEMO ************ -->
-  <section class="demo">
-  					<div class="header">
-  						Max Items
-  					</div>
-  					<div class="sandbox">
-  						<select id="select-state" name="state[]" multiple class="demo-default" style="width:70%" placeholder="Select a state...">
+    <!-- ************** MAX ITEM DEMO ************ -->
+    <section class="demo">
+        <div class="header">
+            Max Items
+        </div>
+        <div class="sandbox">
+            <select id="select-state" name="state[]" multiple class="demo-default" style="width:70%" placeholder="Select a state...">
   							<option value="">Select a state...</option>
   							<option value="AL">Alabama</option>
   							<option value="AK">Alaska</option>
@@ -138,21 +138,20 @@
   							<option value="WI">Wisconsin</option>
   							<option value="WY" selected>Wyoming</option>
   						</select>
-  					</div>
-  					<div class="description">
-  						This example only allows 3 items. Select one more item and the control will be disabled
-  						until one or more are deleted.
-  					</div>
+        </div>
+        <div class="description">
+            This example only allows 3 items. Select one more item and the control will be disabled until one or more are deleted.
+        </div>
 
-  				</section>
-          <!-- ************** Country Selector Demo ************** -->
-				<section class="demo">
-					<div class="header">
-						Country Selector
-					</div>
-					<div class="sandbox">
-						<label for="select-country">Country:</label>
-						<select id="select-country" class="demo-default" placeholder="Select a country...">
+    </section>
+    <!-- ************** Country Selector Demo ************** -->
+    <section class="demo">
+        <div class="header">
+            Country Selector
+        </div>
+        <div class="sandbox">
+            <label for="select-country">Country:</label>
+            <select id="select-country" class="demo-default" placeholder="Select a country...">
 						    <option value="">Select a country...</option>
 							<option value="AF">Afghanistan</option>
 						    <option value="AX">&Aring;land Islands</option>
@@ -401,17 +400,17 @@
 						    <option value="ZM">Zambia</option>
 						    <option value="ZW">Zimbabwe</option>
 						</select>
-					</div>
-					<div class="description">
-						A good example of (1) support for international characters (diacritics) and (2) how items are scored and sorted.
-						Try typing "islands", for instance.
-					</div>
-					<script class="show">
-					</script>
-				</section>
+        </div>
+        <div class="description">
+            A good example of (1) support for international characters (diacritics) and (2) how items are scored and sorted. Try typing "islands", for instance.
+        </div>
+        <script class="show">
+        </script>
+    </section>
 
 
 
 
 </body>
+
 </html>
