@@ -32,11 +32,22 @@ class RenderFuns {
   external Func2<String, BaseOption, Func1<String, String>> get item;
 
   /// customized option list
-  external Func2<String, BaseOption, Func1<String, String>> get option;
-  external factory RenderFuns({Func2 item, Func2 option});
+  //external VoidFunc2<String, BaseOption, Func1<String, String>> get option;
+  external Func2<BaseOption, Function, dynamic> get option;
+  external Func2<BaseOption, Function, dynamic> get optgroup_header;
+  external factory RenderFuns({Func2 item, Func2 option, Func2 optgroup_header});
 }
 
 /// for program to dynamic create option list
 @JS()
 @anonymous
 class BaseOption {}
+
+///
+/// for sort field
+///
+@JS()
+@anonymous
+class SortField {
+  external factory SortField({String field, String direction, String conjunction});
+}

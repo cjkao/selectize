@@ -10,8 +10,6 @@ import 'dart:html';
 @JS()
 @anonymous
 class MyOpt extends BaseOption {
-  String title, url;
-  int id;
   external factory MyOpt({int id, String title, String url});
 }
 
@@ -27,6 +25,8 @@ main() async {
             new MyOpt(id: 1, title: 'Spectrometer', url: 'http://en.wikipedia.org/wiki/Spectrometers'),
             new MyOpt(id: 2, title: 'Star Chart', url: 'http://en.wikipedia.org/wiki/Star_chart'),
             new MyOpt(id: 3, title: 'Electrical Tape', url: 'http://en.wikipedia.org/wiki/Electrical_tape')
+            //  {'id': 3, 'title': 'Electrical Tape', 'url': 'http://en.wikipedia.org/wiki/Electrical_tape'},
+            //  {'id': 2, 'title': 'xElectrical Tape', 'url': 'http://en.wikipedia.org/wiki/Electrical_tape'},
           ],
           create: false));
 
@@ -49,6 +49,11 @@ main() async {
   });
 
   querySelector('#button-setvalue').onClick.listen((_) {
-    control.setValue([2, 3], true);
+    control.setValue([2, 3]);
   });
+  changeCB(_) {
+    querySelector('#items').text = control.getValue()?.join(',');
+  }
+
+  control.on('change', allowInterop(changeCB));
 }

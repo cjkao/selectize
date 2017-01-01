@@ -172,6 +172,11 @@ class SelectOptions {
   external String get optgroupField;
   external set optgroupField(String v);
 
+  ///group
+  ///
+  external bool get lockOptgroupOrder;
+  external set lockOptgroupOrder(bool v);
+
   /// A single field or an array of fields to sort by. Each item in the array should be an object containing at
   /// least a "field" property. Optionally, "direction" can be set to "asc" or "desc". The order of the array
   /// defines the sort precedence.
@@ -211,7 +216,8 @@ class SelectOptions {
   /// Overrides the scoring function used to sort available options. The provided function should return a
   /// function that returns a number greater than or equal to zero to represent the "score" of an item
   /// (the function's first argument). If 0, the option is declared not a match.
-  external Func1<dynamic, num> score(search);
+  external Func1<dynamic, num> get score;
+  external void set score(Func1 fun);
 
   ///Invoked once the control is completely initialized.
   external VoidFunc0 get onInitialize;
@@ -266,11 +272,11 @@ class SelectOptions {
     String valueField,
     List<BaseOption> optgroups,
     String labelField,
-    String sortField,
-    List<BaseOption> options,
+    dynamic /*String|Map*/ sortField,
+    List options,
     dynamic searchField,
     String searchConjunction,
-    List<String> plugins,
+    dynamic /*List<String>|Map*/ plugins,
     RenderFuns render,
     bool createOnBlur,
 
@@ -290,11 +296,20 @@ class SelectOptions {
     String dropdownParent,
     bool addPrecedence,
     bool selectOnTab,
+
+    ///group options
+    String optgroupField,
+    String optgroupLabelField,
+    String optgroupValueField,
+    bool lockOptgroupOrder,
+
+    ///callbacks
     VoidFunc0 onInitialize,
-    VoidFunc1<List> onChange,
-    VoidFunc2 onItemAdd,
+    VoidFunc1 /*(list?: List)=>{}*/ onChange,
+    VoidFunc2 /*(item_value: any, jQueryObject) => {}*/ onItemAdd,
     VoidFunc1 onItemRemove,
     VoidFunc0 onClear,
+    Func1 onDelete,
     VoidFunc2 onOptionAdd,
     VoidFunc1 onOptionRemove,
     VoidFunc1 onOptionClear,
@@ -307,5 +322,7 @@ class SelectOptions {
     VoidFunc1 onLoad,
     VoidFunc0 onFocus,
     VoidFunc0 onBlur,
+    VoidFunc2<String, Function> load,
+    Func1<dynamic, Function> score,
   });
 }

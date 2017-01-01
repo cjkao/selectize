@@ -13,10 +13,9 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<link rel="stylesheet" href="packages/selectize/selectize.css">
-	<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 	<script src="../jquery220.js"></script>
 	<script src="packages/selectize/selectize.js"></script>
-	<script defer type="application/dart" src="api.dart"></script>
+	<script defer type="application/dart" src="required.dart"></script>
 	<script defer src="packages/browser/dart.js"></script>
 
 </head>
@@ -24,26 +23,28 @@
 <body>
 	<div id="wrapper">
 		<h1>Selectize.js</h1>
-		<div class="demo">
-			<h2>API</h2>
-			<p>Examples of how to interact with the control programmatically.</p>
-			<div class="control-group">
-				<label for="select-tools">Tools:</label>
-				<select id="select-tools" multiple placeholder="Pick a tool..."></select>
-			</div>
-			<div class="buttons">
-				<input type="button" value="clear()" id="button-clear">
-				<input type="button" value="clearOptions()" id="button-clearoptions">
-				<input type="button" value="addOption()" id="button-addoption">
-				<input type="button" value="addItem()" id="button-additem">
-				<input type="button" value="setValue()" id="button-setvalue">
-				<div>
 
-					Select value:<span id='items'></span></div>
+		<div class="demo">
+			<h2>Required Element</h2>
+			<div class="control-group">
+				<form>
+					<label for="select-beast">Beast:</label>
+					<select id="select-beast" required class="demo-default" placeholder="Select a person..." name="beast">
+							<option value="">Select a person...</option>
+							<option value="4">Thomas Edison</option>
+							<option value="1">Nikola</option>
+							<option value="3">Nikola Tesla</option>
+							<option value="5">Arnold Schwarzenegger</option>
+						</select>
+					<div style="margin-top:20px">
+						<button type="submit">Submit</button>
+					</div>
+				</form>
 			</div>
 			<script>
 			</script>
 		</div>
+
 	</div>
 </body>
 

@@ -1,4 +1,9 @@
 # Changelog
+## 0.1.6
+- add examples
+- fix getScoreFunction
+- add SortField
+- add Customize renderer on Grouping header
 ## 0.1.5
   * update selectize to 0.12.4
   * depreciate bootstrap function

@@ -197,7 +197,7 @@ abstract class Selectize {
   /// Input or Select
   external String get tagType;
 
-  external static Function getScoreFunction(val);
+  external Function getScoreFunction(val);
 }
 
 /// require two fields, one for
@@ -215,13 +215,9 @@ Selectize selectize(String selector, [SelectOptions opt]) {
   if (opt == null) {
     opt = new SelectOptions();
   }
-  if (opt.create == null) {
-    opt.create = true;
-  }
-  var j0 = _jquery(selector);
-  var j1 = j0.selectize(opt);
-  print('hasp   ${hasProperty(j1,"0")}');
-  var x1 = getProperty(j1, '0');
+  var x0 = _jquery(selector).selectize(opt);
+//  print('hasp   ${hasProperty(j1,"0")}');
+  var x1 = getProperty(x0, '0');
   var x2 = getProperty(x1, 'selectize');
   return x2;
 }
