@@ -1,0 +1,60 @@
+{
+  "ngDeps": {
+    "1": "selectize.exmple.group",
+    "3": [
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      }
+    ],
+    "6": "optgroups.dart",
+    "7": [
+      {
+        "1": "package:selectize/selectize.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "CarOpt": {
+      "class": "Identifier",
+      "name": "CarOpt",
+      "moduleUrl": "asset:selectize/web/examples/optgroups.dart",
+      "prefix": null,
+      "value": null
+    },
+    "CarGroup": {
+      "class": "Identifier",
+      "name": "CarGroup",
+      "moduleUrl": "asset:selectize/web/examples/optgroups.dart",
+      "prefix": null,
+      "value": null
+    },
+    "AnimalOpt": {
+      "class": "Identifier",
+      "name": "AnimalOpt",
+      "moduleUrl": "asset:selectize/web/examples/optgroups.dart",
+      "prefix": null,
+      "value": null
+    },
+    "AnimalGroup": {
+      "class": "Identifier",
+      "name": "AnimalGroup",
+      "moduleUrl": "asset:selectize/web/examples/optgroups.dart",
+      "prefix": null,
+      "value": null
+    },
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/examples/optgroups.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

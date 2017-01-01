@@ -1,0 +1,36 @@
+{
+  "ngDeps": {
+    "1": "selectize.exmple.confirm",
+    "3": [
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      }
+    ],
+    "6": "confirm.dart",
+    "7": [
+      {
+        "1": "package:selectize/selectize.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/examples/confirm.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

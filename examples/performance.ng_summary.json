@@ -1,0 +1,38 @@
+{
+  "ngDeps": {
+    "1": "selectize.exmple.perf",
+    "3": [
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "4": "Math",
+        "5": false
+      }
+    ],
+    "6": "performance.dart"
+  },
+  "type": {
+    "MyOpt": {
+      "class": "Identifier",
+      "name": "MyOpt",
+      "moduleUrl": "asset:selectize/web/examples/performance.dart",
+      "prefix": null,
+      "value": null
+    },
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/examples/performance.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

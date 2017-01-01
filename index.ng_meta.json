@@ -1,0 +1,52 @@
+{
+  "ngDeps": {
+    "1": "cj.angular2.selective",
+    "3": [
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      },
+      {
+        "1": "dart:js",
+        "4": "js",
+        "5": false
+      }
+    ],
+    "6": "index.dart",
+    "7": [
+      {
+        "1": "package:selectize/selectize.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/index.dart",
+      "prefix": null,
+      "value": null
+    },
+    "bookExample": {
+      "class": "Identifier",
+      "name": "bookExample",
+      "moduleUrl": "asset:selectize/web/index.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

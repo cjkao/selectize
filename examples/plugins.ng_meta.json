@@ -1,0 +1,40 @@
+{
+  "ngDeps": {
+    "1": "selectize.example.plugin",
+    "3": [
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      },
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:js/js_util.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      }
+    ],
+    "6": "plugins.dart",
+    "7": [
+      {
+        "1": "package:selectize/selectize.template.dart",
+        "4": "i0"
+      }
+    ]
+  },
+  "type": {
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/examples/plugins.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}
