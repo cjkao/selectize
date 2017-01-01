@@ -17,11 +17,6 @@
       {
         "1": "package:selectize/selectize.dart",
         "5": false
-      },
-      {
-        "1": "dart:js",
-        "4": "js",
-        "5": false
       }
     ],
     "6": "index.dart"

@@ -1,0 +1,112 @@
+{
+  "ngDeps": {
+    "1": "osSelectize",
+    "3": [
+      {
+        "1": "package:js/js_util.dart",
+        "5": false
+      },
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "dart:js",
+        "4": "js",
+        "5": false
+      },
+      {
+        "1": "base.dart",
+        "5": false
+      },
+      {
+        "1": "configuration.dart",
+        "5": false
+      }
+    ],
+    "6": "osSelectize.dart",
+    "7": [
+      {
+        "1": "base.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "configuration.template.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "EventHandler": {
+      "class": "Identifier",
+      "name": "EventHandler",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "jqSelectBootstrap": {
+      "class": "Identifier",
+      "name": "jqSelectBootstrap",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "_jquery": {
+      "class": "Identifier",
+      "name": "_jquery",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "JQuery": {
+      "class": "Identifier",
+      "name": "JQuery",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "jsRegExp": {
+      "class": "Identifier",
+      "name": "jsRegExp",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "optionByValue": {
+      "class": "Identifier",
+      "name": "optionByValue",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "optionList": {
+      "class": "Identifier",
+      "name": "optionList",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Selectize": {
+      "class": "Identifier",
+      "name": "Selectize",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "MailBaseOption": {
+      "class": "Identifier",
+      "name": "MailBaseOption",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "selectize": {
+      "class": "Identifier",
+      "name": "selectize",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

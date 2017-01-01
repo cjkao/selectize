@@ -1,0 +1,297 @@
+{
+  "ngDeps": {
+    "1": "cj.angular2.selective",
+    "3": [
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:selectize/selectize.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/platform/browser_static.dart",
+        "5": false
+      },
+      {
+        "1": "dart:js",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "4": "math",
+        "5": false
+      },
+      {
+        "1": "dart:js_util",
+        "4": "util",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "AppComponent",
+        "7": [
+          {
+            "2": "NgSelectize"
+          },
+          {
+            "2": "NgSelectize2"
+          }
+        ]
+      },
+      {
+        "1": "NgSelectize",
+        "5": [
+          {
+            "1": "ElementRef",
+            "4": "elelemtRef"
+          },
+          {
+            "1": "NgZone",
+            "4": "zone"
+          }
+        ],
+        "6": [
+          "AfterViewInit",
+          "OnDestroy",
+          "OnInit"
+        ],
+        "7": [
+          {
+            "2": "NgClass"
+          }
+        ]
+      },
+      {
+        "1": "NgSelectize2",
+        "5": [
+          {
+            "1": "NgZone",
+            "4": "zone"
+          }
+        ],
+        "6": [
+          "AfterViewInit",
+          "OnDestroy",
+          "OnInit"
+        ],
+        "7": [
+          {
+            "2": "NgClass"
+          }
+        ]
+      }
+    ],
+    "6": "index.dart"
+  },
+  "type": {
+    "AppComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "my-app",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "AppComponent",
+        "moduleUrl": "asset:selectize/web/ng2/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<h1>Angular 2 Selectize </h1>\n    <jq-selective></jq-selective>\n    <jq-selective-min></jq-selective-min>",
+        "templateUrl": "asset:selectize/web/ng2/index.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "NgSelectize": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "jq-selective",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "NgSelectize",
+        "moduleUrl": "asset:selectize/web/ng2/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "ElementRef",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          },
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "NgZone",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        6,
+        1,
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div> {{selectedValue}}</div>\n<select  [ngClass]=\"classes\"    placeholder=\"Pick some people...\"></select>\n            ",
+        "templateUrl": "asset:selectize/web/ng2/index.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "NgSelectize2": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "jq-selective-min",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "NgSelectize2",
+        "moduleUrl": "asset:selectize/web/ng2/index.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "NgZone",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        6,
+        1,
+        0
+      ],
+      "template": {
+        "encapsulation": 2,
+        "template": "<div> {{selectedValue}}</div>\n    <select [ngClass]=\"classes\"  multiple class=\"demo-default\" style=\"width:70%\" placeholder=\"Select a box...\">\n      <option value=\"\">Select a box...</option>\n      <option value=\"big\">big</option>\n      <option value=\"small\">small</option>\n    </select>\n            ",
+        "templateUrl": "asset:selectize/web/ng2/index.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "main": {
+      "class": "Identifier",
+      "name": "main",
+      "moduleUrl": "asset:selectize/web/ng2/index.dart",
+      "prefix": null,
+      "value": null
+    },
+    "bookExample": {
+      "class": "Identifier",
+      "name": "bookExample",
+      "moduleUrl": "asset:selectize/web/ng2/index.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

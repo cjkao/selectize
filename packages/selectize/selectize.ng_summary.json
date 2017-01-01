@@ -1,0 +1,19 @@
+{
+  "ngDeps": {
+    "1": "selectize",
+    "4": [
+      {
+        "1": "src/base.dart"
+      },
+      {
+        "1": "src/configuration.dart"
+      },
+      {
+        "1": "src/osSelectize.dart"
+      }
+    ],
+    "6": "selectize.dart"
+  },
+  "type": {},
+  "alias": {}
+}

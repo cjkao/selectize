@@ -1,0 +1,146 @@
+{
+  "ngDeps": {
+    "1": "selectize",
+    "4": [
+      {
+        "1": "src/base.dart"
+      },
+      {
+        "1": "src/configuration.dart"
+      },
+      {
+        "1": "src/osSelectize.dart"
+      }
+    ],
+    "6": "selectize.dart",
+    "7": [
+      {
+        "1": "src/base.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "src/configuration.template.dart",
+        "4": "i1"
+      },
+      {
+        "1": "src/osSelectize.template.dart",
+        "4": "i2"
+      }
+    ]
+  },
+  "type": {
+    "Options": {
+      "class": "Identifier",
+      "name": "Options",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "OptValue": {
+      "class": "Identifier",
+      "name": "OptValue",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "RenderFuns": {
+      "class": "Identifier",
+      "name": "RenderFuns",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "BaseOption": {
+      "class": "Identifier",
+      "name": "BaseOption",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "SortField": {
+      "class": "Identifier",
+      "name": "SortField",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "SelectOptions": {
+      "class": "Identifier",
+      "name": "SelectOptions",
+      "moduleUrl": "asset:selectize/lib/src/configuration.dart",
+      "prefix": null,
+      "value": null
+    },
+    "EventHandler": {
+      "class": "Identifier",
+      "name": "EventHandler",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "jqSelectBootstrap": {
+      "class": "Identifier",
+      "name": "jqSelectBootstrap",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "_jquery": {
+      "class": "Identifier",
+      "name": "_jquery",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "JQuery": {
+      "class": "Identifier",
+      "name": "JQuery",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "jsRegExp": {
+      "class": "Identifier",
+      "name": "jsRegExp",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "optionByValue": {
+      "class": "Identifier",
+      "name": "optionByValue",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "optionList": {
+      "class": "Identifier",
+      "name": "optionList",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Selectize": {
+      "class": "Identifier",
+      "name": "Selectize",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "MailBaseOption": {
+      "class": "Identifier",
+      "name": "MailBaseOption",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    },
+    "selectize": {
+      "class": "Identifier",
+      "name": "selectize",
+      "moduleUrl": "asset:selectize/lib/src/osSelectize.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

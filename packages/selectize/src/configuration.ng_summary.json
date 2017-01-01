@@ -1,0 +1,30 @@
+{
+  "ngDeps": {
+    "1": "selectize.configuration",
+    "3": [
+      {
+        "1": "base.dart",
+        "5": false
+      },
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:func/func.dart",
+        "5": false
+      }
+    ],
+    "6": "configuration.dart"
+  },
+  "type": {
+    "SelectOptions": {
+      "class": "Identifier",
+      "name": "SelectOptions",
+      "moduleUrl": "asset:selectize/lib/src/configuration.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,54 @@
+{
+  "ngDeps": {
+    "1": "selectize.base",
+    "3": [
+      {
+        "1": "package:js/js.dart",
+        "5": false
+      },
+      {
+        "1": "package:func/func.dart",
+        "5": false
+      }
+    ],
+    "6": "base.dart"
+  },
+  "type": {
+    "Options": {
+      "class": "Identifier",
+      "name": "Options",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "OptValue": {
+      "class": "Identifier",
+      "name": "OptValue",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "RenderFuns": {
+      "class": "Identifier",
+      "name": "RenderFuns",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "BaseOption": {
+      "class": "Identifier",
+      "name": "BaseOption",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    },
+    "SortField": {
+      "class": "Identifier",
+      "name": "SortField",
+      "moduleUrl": "asset:selectize/lib/src/base.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}
