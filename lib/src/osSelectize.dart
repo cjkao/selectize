@@ -6,7 +6,7 @@ library osSelectize;
 import 'package:js/js_util.dart';
 import 'package:js/js.dart';
 import 'dart:js' as js;
-import 'package:func/func.dart';
+//import 'package:func/func.dart';
 import 'base.dart';
 import 'configuration.dart';
 
@@ -51,7 +51,7 @@ abstract class Selectize {
 
   ///"Selects" an item. Adds it to the list at the current caret position.
   ///  If [silent] is true, no change event will be fired on the original input.
-  external void addItem(String value, [bool silent = false]);
+  external void addItem(dynamic value, [bool silent = false]);
 
   ///Removes the selected item matching the provided value.
   ///  If [silent] is truthy, no change event will be fired on the original input.
@@ -92,7 +92,7 @@ abstract class Selectize {
   ///return union type, array or string
   ///Returns the value of the control. If multiple items can be selected (e.g. <select multiple>,
   /// this returns an array. If only one item can be selected, this returns a string.
-  external getValue();
+  external dynamic /*String|List*/ getValue();
 
   ///
   ///  Resets the selected items to the given value.

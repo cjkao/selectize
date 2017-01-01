@@ -17,7 +17,7 @@ dev_dependencies:
   test: ^0.12.10
 #  polymer: ^1.0.0
 #  dart_to_js_script_rewriter: any
-#transformers:
+transformers:
 #- dart_to_js_script_rewriter
 #- angular2:
 #    entry_points: web/ng2/index.dart

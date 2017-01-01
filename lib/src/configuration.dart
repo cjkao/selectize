@@ -6,7 +6,6 @@ library selectize.configuration;
 import 'base.dart';
 import 'package:js/js.dart';
 import 'package:func/func.dart';
-import 'base.dart';
 
 /// Selectize Configuration
 @JS()
@@ -276,9 +275,9 @@ class SelectOptions {
     bool createOnBlur,
 
     /// regex [string] or [RegExp] or [Func1<String,bool>]
-    dynamic createFilter,
+    dynamic /*String|Func1<String,bool>*/ createFilter,
     /*  bool or function*/
-    dynamic create,
+    dynamic /*bool|Function*/ create,
     bool highlight,
     bool persist,
     bool openOnFocus,
