@@ -6,11 +6,8 @@ import 'dart:html';
 import 'dart:async';
 import 'package:js/js.dart';
 import 'package:selectize/selectize.dart';
-import 'dart:js' as js;
 
-/// [MainApp] used!
 main() async {
-//  await jqSelectBootstrap();
   var iTag = selectize(
       '#select-box',
       new SelectOptions()

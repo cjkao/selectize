@@ -10,15 +10,13 @@ dependencies:
   browser: ^0.10.0
   js: ^0.6.0
   func: ^0.1.0
-#  difter:
-#    path: ../difter
 dev_dependencies:
   angular2: ^2.1.0
   test: ^0.12.10
+  dart_to_js_script_rewriter: any
 #  polymer: ^1.0.0
-#  dart_to_js_script_rewriter: any
 transformers:
-#- dart_to_js_script_rewriter
+- dart_to_js_script_rewriter
 #- angular2:
 #    entry_points: web/ng2/index.dart
 #- web_components:

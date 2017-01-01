@@ -13,7 +13,7 @@ Selectize wrapper
 ---
 
 # Example
-see web/index.html
+see [live example](http://cjkao.github.io/selectize/)
 
 ## Simple case
 * dart
@@ -266,8 +266,8 @@ class NgSelectize implements AfterViewInit, OnDestroy, OnInit {
 ```javascript
      <script defer type="application/dart" src="index.dart"></script>
 ```
-* Utils.isArray is changed in  `selectize.js` for chormium  
-
+* Utils.isArray changed in  `selectize.js` for chormium  
+* $.isArray replaced to Array.isArray
 
 # test
 `pub run test test/testCommon.dart -p dartium`
