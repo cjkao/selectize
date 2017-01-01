@@ -22,6 +22,8 @@ main() async {
   iTag.addOption(new OptValue(value: '1', text: 'a'));
   iTag.addOption(new OptValue(value: "tiny", text: 'TINY'));
   iTag.createItem('x');
+  int a = iTag.getValue();
+
   var xx = optionList(iTag.options);
   print(xx);
 //  var iTag = selectize('#select-box');

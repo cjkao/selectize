@@ -1,5 +1,7 @@
 // Copyright (c) 2016, kaopeter. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
+library selectize.sample.js;
+
 import 'package:js/js.dart';
 import 'package:selectize/selectize.dart';
 import 'dart:html';
