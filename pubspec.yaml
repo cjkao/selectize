@@ -1,5 +1,5 @@
 name: 'selectize'
-version: 0.1.6
+version: 0.1.6+1
 author: CJKAO <kaopeter@gmail.com>
 description: dart selectize js wrapper
 homepage: https://github.com/cjkao/selectize
@@ -16,7 +16,7 @@ dev_dependencies:
   dart_to_js_script_rewriter: any
 #  polymer: ^1.0.0
 transformers:
-- dart_to_js_script_rewriter
+#- dart_to_js_script_rewriter
 #- angular2:
 #    entry_points: web/ng2/index.dart
 #- web_components:
