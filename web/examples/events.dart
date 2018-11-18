@@ -5,7 +5,7 @@ import 'package:selectize/selectize.dart';
 import 'dart:html';
 
 main() async {
-  var eventHandler = (name) {
+  var eventHandler = (String name) {
     return allowInterop(([_, __]) {
       print('$name, $_ $__');
       querySelector('#log').appendHtml('<div><span class="name">' + name + '</span></div>');

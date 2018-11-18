@@ -12,7 +12,7 @@ main() async {
       '#select-box',
       new SelectOptions()
         ..create = true
-        ..onChange = allowInterop((List _) {
+        ..onChange = allowInterop((_) {
           print('box change:$_');
           querySelector('.box-list').text = _?.join(',');
         }));

@@ -1,4 +1,8 @@
 # Changelog
+## 0.2.1
+- update to dart2
+## 0.1.6+1
+- remove dart 2 js transformer
 ## 0.1.6
 - add examples
 - fix getScoreFunction

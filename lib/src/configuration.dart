@@ -2,10 +2,10 @@
 // license that can be found in the LICENSE file.
 @JS()
 library selectize.configuration;
-
+import 'typedef.dart';
 import 'base.dart';
 import 'package:js/js.dart';
-import 'package:func/func.dart';
+// import 'package:func/func.dart';
 
 /// Selectize Configuration
 @JS()
@@ -217,7 +217,8 @@ class SelectOptions {
   /// function that returns a number greater than or equal to zero to represent the "score" of an item
   /// (the function's first argument). If 0, the option is declared not a match.
   external Func1<dynamic, num> get score;
-  external void set score(Func1 fun);
+  // external void set score(Func1 fun);
+  external void set score(Function fun);
 
   ///Invoked once the control is completely initialized.
   external VoidFunc0 get onInitialize;
@@ -232,7 +233,8 @@ class SelectOptions {
   /// list of value fields
   external VoidFunc1<List> get onChange;
 
-  external set onChange(VoidFunc1<List> _);
+  // external set onChange(VoidFunc1<List> _);
+  external set onChange(Function _);
 
   ///Invoked when an item is selected.
   /// value, $item
@@ -304,25 +306,42 @@ class SelectOptions {
     bool lockOptgroupOrder,
 
     ///callbacks
-    VoidFunc0 onInitialize,
-    VoidFunc1 /*(list?: List)=>{}*/ onChange,
-    VoidFunc2 /*(item_value: any, jQueryObject) => {}*/ onItemAdd,
-    VoidFunc1 onItemRemove,
-    VoidFunc0 onClear,
-    Func1 onDelete,
-    VoidFunc2 onOptionAdd,
-    VoidFunc1 onOptionRemove,
-    VoidFunc1 onOptionClear,
-    VoidFunc2 onOptionGroupAdd,
-    VoidFunc1 onOptionGroupRemove,
-    VoidFunc0 onOptionGroupClear,
-    VoidFunc1 onDropdownOpen,
-    VoidFunc1 onDropdownClose,
-    VoidFunc1 onType,
-    VoidFunc1 onLoad,
-    VoidFunc0 onFocus,
-    VoidFunc0 onBlur,
-    VoidFunc2<String, Function> load,
-    Func1<dynamic, Function> score,
+    // VoidFunc0 onInitialize,
+    Function onInitialize,
+    Function /*(list?: List)=>{}*/ onChange,
+    Function /*(item_value: any, jQueryObject) => {}*/ onItemAdd,
+    // VoidFunc1 onItemRemove,
+    Function onItemRemove,
+    // VoidFunc0 onClear,
+    Function onClear,
+    Function onDelete,
+    // VoidFunc2 onOptionAdd,
+    Function onOptionAdd,
+    // VoidFunc1 onOptionRemove,
+    Function onOptionRemove,
+    // VoidFunc1 onOptionClear,
+    Function onOptionClear,
+    // VoidFunc2 onOptionGroupAdd,
+    Function onOptionGroupAdd,
+    // VoidFunc1 onOptionGroupRemove,
+    Function onOptionGroupRemove,
+    // VoidFunc0 onOptionGroupClear,
+    Function onOptionGroupClear,
+    // VoidFunc1 onDropdownOpen,
+    Function onDropdownOpen,
+    // VoidFunc1 onDropdownClose,
+    Function onDropdownClose,
+    // VoidFunc1 onType,
+    Function onType,
+    // VoidFunc1 onLoad,
+    Function onLoad,
+    // VoidFunc0 onFocus,
+    Function onFocus,
+    // VoidFunc0 onBlur,
+    Function onBlur,
+    // VoidFunc2<String, Function> load,
+    Function load,
+    // Func1<dynamic, Function> score,
+    Function score,
   });
 }

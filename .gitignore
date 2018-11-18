@@ -14,3 +14,4 @@ packages
 pubspec.lock
 .packages
 .atom
+.dart_tool
